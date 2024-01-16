@@ -29,10 +29,8 @@ public class StringOps {
         String vowels = "aeiouAEIOU";
     
         for (int i = 0; i < string.length(); i++) {
-            char character = string.charAt(i);
-            
+            char character = string.charAt(i);   
             if (vowels.indexOf(character) != -1) {
-                // Convert to uppercase with ASCII
                 if (character >= 'a' && character <= 'z') {
                     result += (char)(character - 32); 
                 }
@@ -40,7 +38,7 @@ public class StringOps {
             } else {
                 if (character >= 'A' && character <= 'Z') {
                     result += (char)(character + 32);
-                } else {result += (char) (character);}
+                } else {result += (char)(character);}
             }
         }
         return result;
@@ -56,7 +54,6 @@ public class StringOps {
     
             if (currentChar != ' ') {
                 if (thrFirstLetter) {
-                    // convert first letter of first word to lowercase
                     thrFirstLetter = false;
                     firstLetter = false;
                     if (currentChar >= 'a' && currentChar <= 'z') {
@@ -65,7 +62,6 @@ public class StringOps {
                         result += (char) (currentChar + 32);
                     }
                 } else if (firstLetter) {
-                    // convert first letter of non first word to upperCase
                     firstLetter = false;
                     if (currentChar >= 'a' && currentChar <= 'z') {
                         result += (char) (currentChar - 32);
