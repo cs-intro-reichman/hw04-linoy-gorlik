@@ -22,25 +22,25 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-        System.out.println(capVowelsLowRest("One two tHRee world"));
-        System.out.println(camelCase("Hello"));
     }
 
     public static String capVowelsLowRest (String string) {
-        String result = ""; 
+        String result = "";
+        String vowels = "aeiouAEIOU";
+    
         for (int i = 0; i < string.length(); i++) {
             char character = string.charAt(i);
-            if ("AEOUIaeoui".indexOf(character) > -1){
-                if ("AEOUI".indexOf(character) > -1){
-                    result = result + (char)(character);
-                } else {
-                    result = result + (char)(character - 32);
-
+            
+            if (vowels.indexOf(character) != -1) {
+                // Convert to uppercase with ASCII
+                if (character >= 'a' && character <= 'z') {
+                    result += (char)(character - 32); 
                 }
-            } else if (character >= 'A' && character <= 'Z'){
-                result = result + (char) (character + 32);
+                else {result += character;}
             } else {
-                result = result + (char) character;
+                if (character >= 'A' && character <= 'Z') {
+                    result += (char)(character + 32);
+                } else {result += (char) (character);}
             }
         }
         return result;
