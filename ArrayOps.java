@@ -1,24 +1,20 @@
 import java.util.Arrays;
 public class ArrayOps {
     public static void main(String[] args) {
-      
-
     }
     public static int findMissingInt (int [] array) {
-        // {9,6,7}
-        if (array.length == 1) {
-            return array[0] + 1;
-        }
         Arrays.sort(array);
-        for ( int index = 1; index <= array.length; index++ ){
-            if (array[index] - array[index-1] != 1) {
-                return array[index] - 1;
-            }
-                
+        if (array.length == 0) {return -1;}
+           else if (array.length == 1) {return array[0]+1;}
+               for (int i = 1; i < array.length; i++) {
+            if (array[i] - array[i-1] == 1) {}
+         else {return array[i-1] + 1;}
         }
-
-        return -1;
-    }
+        return array[0]-1;
+     }
+                
+        
+    
 
     public static int secondMaxValue(int [] array) {
        int firstMax = array[0];
