@@ -1,14 +1,7 @@
 import java.util.Arrays;
 public class ArrayOps {
     public static void main(String[] args) {
-        // int [] array1 = {1, 2, 1, 2};
-        // int [] array2 = {2, 1};
-        // boolean m = containsTheSameElements(array1, array2);
-        // System.out.println(m);
-
-        int [] array2 = {0, 1, 2, 1};
-        boolean m = isSorted(array2);
-        System.out.println(m);
+      
 
     }
     public static int findMissingInt (int [] array) {
