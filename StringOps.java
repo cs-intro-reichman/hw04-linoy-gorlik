@@ -50,30 +50,29 @@ public class StringOps {
         boolean thrFirstLetter = true;
     
         for (int i = 0; i < string.length(); i++) {
-            char currentChar = string.charAt(i);
+            char character = string.charAt(i);
     
-            if (currentChar != ' ') {
+            if (character != ' ') {
                 if (thrFirstLetter) {
                     thrFirstLetter = false;
                     firstLetter = false;
-                    if (currentChar >= 'a' && currentChar <= 'z') {
-                        result += currentChar;
+                    if (character >= 'a' && character <= 'z') {
+                        result += character;
                     } else {
-                        result += (char) (currentChar + 32);
+                        result += (char) (character + 32);
                     }
                 } else if (firstLetter) {
                     firstLetter = false;
-                    if (currentChar >= 'a' && currentChar <= 'z') {
-                        result += (char) (currentChar - 32);
+                    if (character >= 'a' && character <= 'z') {
+                        result += (char) (character - 32);
                     } else {
-                        result += currentChar;
+                        result += character;
                     }
                 } else {
-                    // convert all other words to lowercase
-                    if (currentChar >= 'a' && currentChar <= 'z') {
-                        result += currentChar;
+                    if (character >= 'a' && character <= 'z') {
+                        result += character;
                     } else {
-                        result += (char) (currentChar + 32);
+                        result += (char) (character + 32);
                     }
                 }
             } else {
@@ -86,17 +85,17 @@ public class StringOps {
 
     public static int[] allIndexOf (String string, char chr) {
         int counter = 0;
-        for (int i = 0; i < string.length(); i++){
-            if (string.charAt(i) == chr){
+        for (int i = 0; i < string.length(); i++) {
+            if (string.charAt(i) == chr) {
                 counter++;
             }
         }
-        int arrIndex = 0;
-           int [] arr = new int[counter];
-                for (int i = 0; i < string.length(); i++){
-                   if (string.charAt(i) == chr) {
-                       arr[arrIndex] = i;
-                       arrIndex++;
+        int arrindex = 0;
+        int[] arr = new int[counter];
+        for (int i = 0; i < string.length(); i++) {
+            if (string.charAt(i) == chr) {
+                arr[arrindex] = i;
+                arrindex++;
             }
         }
         return arr;
