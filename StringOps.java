@@ -29,8 +29,10 @@ public class StringOps {
         String vowels = "aeiouAEIOU";
     
         for (int i = 0; i < string.length(); i++) {
-            char character = string.charAt(i);   
+            char character = string.charAt(i);
+            
             if (vowels.indexOf(character) != -1) {
+                // Convert to uppercase with ASCII
                 if (character >= 'a' && character <= 'z') {
                     result += (char)(character - 32); 
                 }
@@ -38,23 +40,26 @@ public class StringOps {
             } else {
                 if (character >= 'A' && character <= 'Z') {
                     result += (char)(character + 32);
-                } else {result += (char)(character);}
+                } else {result += (char) (character);}
             }
         }
         return result;
     }
 
+    // String r = capVowelsLowRest("input");
+    // System.out.println(r);
     public static String camelCase (String string) {
         String result = "";
         boolean firstLetter = true;
-        boolean thrFirstLetter = true;
+        boolean firstEverLetter = true;
     
         for (int i = 0; i < string.length(); i++) {
             char character = string.charAt(i);
     
             if (character != ' ') {
-                if (thrFirstLetter) {
-                    thrFirstLetter = false;
+                if (firstEverLetter) {
+                    // convert first letter of first word to lowercase
+                    firstEverLetter = false;
                     firstLetter = false;
                     if (character >= 'a' && character <= 'z') {
                         result += character;
@@ -62,6 +67,7 @@ public class StringOps {
                         result += (char) (character + 32);
                     }
                 } else if (firstLetter) {
+                    // convert first letter of non first word to upperCase
                     firstLetter = false;
                     if (character >= 'a' && character <= 'z') {
                         result += (char) (character - 32);
@@ -69,6 +75,7 @@ public class StringOps {
                         result += character;
                     }
                 } else {
+                    // convert all other words to lowercase
                     if (character >= 'a' && character <= 'z') {
                         result += character;
                     } else {
@@ -84,6 +91,7 @@ public class StringOps {
     }
 
     public static int[] allIndexOf (String string, char chr) {
+        
         int counter = 0;
         for (int i = 0; i < string.length(); i++) {
             if (string.charAt(i) == chr) {
@@ -101,3 +109,4 @@ public class StringOps {
         return arr;
     }
 }
+
