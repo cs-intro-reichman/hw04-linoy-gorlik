@@ -22,7 +22,9 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-       
+        // String f= "Hello World";
+        // String m = allIndexOf(f);
+        // System.out.println(m);
     }
     public static String capVowelsLowRest (String string) {
         String result = "";
@@ -49,41 +51,42 @@ public class StringOps {
     public static String camelCase (String string) {
         String result = "";
         boolean firstLetter = true;
-        boolean firstEverLetter = true;
+        boolean TheFirstLetter = true;
     
         for (int i = 0; i < string.length(); i++) {
-            char character = string.charAt(i);
+            char currentChar = string.charAt(i);
     
-            if (character != ' ') {
-                if (firstEverLetter) {
-                    firstEverLetter = false;
+            if (currentChar != ' ') {
+                if (TheFirstLetter) {
+                    TheFirstLetter = false;
                     firstLetter = false;
-                    if (character >= 'a' && character <= 'z') {
-                        result += character;
+                    if (currentChar >= 'a' && currentChar <= 'z') {
+                        result += currentChar;
                     } else {
-                        result += (char) (character + 32);
+                        result += (char) (currentChar + 32);
                     }
-                } else if (firstLetter) 
+                } else if (firstLetter) {
                     firstLetter = false;
-                    if (character >= 'a' && character <= 'z') {
-                        result += (char) (character - 32);
+                    if (currentChar >= 'a' && currentChar <= 'z') {
+                        result += (char) (currentChar - 32);
                     } else {
-                        result += character;
+                        result += currentChar;
                     }
                 } else {
-                    if (character >= 'a' && character <= 'z') {
-                        result += character;
+                    if (currentChar >= 'a' && currentChar <= 'z') {
+                        result += currentChar;
                     } else {
-                        result += (char) (character + 32);
+                        result += (char) (currentChar + 32);
                     }
                 }
-            // } else {
+            } else {
                 firstLetter = true;
             }
-        
-        
+        }
+    
         return result;
-}
+    }
+
     public static int[] allIndexOf (String string, char chr) {
         
         int counter = 0;
@@ -103,4 +106,3 @@ public class StringOps {
         return arr;
     }
 }
-
